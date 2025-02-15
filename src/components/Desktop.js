@@ -1,25 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import Icon from "./Icon";
 import Taskbar from "./Taskbar";
-import resumeIcon from "../assets/icons/resume_icon.png"; 
-import githubIcon from "../assets/icons/github_icon.png"; 
-import leetcodeIcon from "../assets/icons/leetcode_icon.png"; 
+import resumeIcon from "../assets/icons/resume_icon.png";
+import githubIcon from "../assets/icons/github_icon.png";
+import leetcodeIcon from "../assets/icons/leetcode_icon.png";
 import "../styles/Desktop.css";
 
 const Desktop = () => {
-  const icons = [
-    { id: 1, name: "Resume", icon: resumeIcon }, 
-    { id: 2, name: "GitHub", icon: githubIcon}, 
-    { id: 3, name: "Leetcode", icon: leetcodeIcon }
-];
+  const [openWindows, setOpenWindows] = useState([]); // Track windows manually
 
+  const icons = [
+    { id: 1, name: "Resume", icon: resumeIcon, url: "https://example.com/resume" },
+    { id: 2, name: "Projects", icon: githubIcon, url: "https://github.com/snehakarki" },
+    { id: 3, name: "Leetcode", icon: leetcodeIcon, url: "https://leetcode.com/u/carkey_25/" },
+  ];
+
+  const openWindow = (icon) => {
+    setOpenWindows((prevWindows) => {
+      const existingWindow = prevWindows.find((win) => win.id === icon.id);
+      if (existingWindow) {
+        existingWindow.popup?.focus(); // Bring to front
+        return prevWindows;
+      }
+
+      const popup = window.open(icon.url, icon.name, "width=800,height=600,left=200,top=100");
+      return [...prevWindows, { id: icon.id, name: icon.name, icon: icon.icon, popup }];
+    });
+  };
+
+  const closeWindow = (id) => {
+    setOpenWindows((prevWindows) => {
+      const targetWindow = prevWindows.find((win) => win.id === id);
+      targetWindow?.popup?.close();
+      return prevWindows.filter((win) => win.id !== id);
+    });
+  };
 
   return (
     <div className="desktop">
-      {icons.map((item) => (
-        <Icon key={item.id} name={item.name} icon={item.icon} />
+      {icons.map((icon) => (
+        <div key={icon.id} onDoubleClick={() => openWindow(icon)}>
+          <Icon name={icon.name} icon={icon.icon} />
+        </div>
       ))}
-      <Taskbar />
+
+      {/* Taskbar with docked windows */}
+      <Taskbar openWindows={openWindows} onClose={closeWindow} onRestore={openWindow} />
     </div>
   );
 };
