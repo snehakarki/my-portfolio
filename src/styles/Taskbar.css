@@ -1,0 +1,27 @@
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;  /* Ensure it starts from the left edge */
+  width: 100vw;  /* Ensures it spans the full width */
+  height: 40px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0 10px;
+  z-index: 1000; /* Ensures it stays on top */
+}
+
+  .start-btn {
+    background: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .time {
+    font-size: 14px;
+  }
+  
