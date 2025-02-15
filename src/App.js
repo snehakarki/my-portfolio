@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import Desktop from "./components/Desktop";
 
@@ -28,6 +29,13 @@ function App() {
     </div>
   );
 >>>>>>> 7d4a7b8 (Initialize project using Create React App)
+=======
+import React from "react";
+import Desktop from "./components/Desktop";
+
+function App() {
+  return <Desktop />;
+>>>>>>> 440ba9d (initial commit)
 }
 
 export default App;
