@@ -14,7 +14,7 @@
   z-index: 1000;
 }
 
-/* Left section (Weather, etc.) */
+
 .left-section {
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   flex: 1;
 }
 
-/* Center section (Start button + Docked windows) */
+
 .center-section {
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
   justify-content: center;
 }
 
-/* Right section (Date & Time) */
+
 .right-section {
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@
   flex: 1;
 }
 
-/* Start button */
+
 .start-btn {
   background: none;
   border: none;
@@ -57,7 +57,7 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Taskbar docked window icons */
+
 .taskbar-window {
   display: flex;
   align-items: center;
@@ -76,9 +76,10 @@
   background: rgba(255, 255, 255, 0.4);
 }
 
-/* Taskbar icons */
+
 .taskbar-icon {
   width: 24px;
   height: 24px;
   border-radius: 3px;
 }
+
