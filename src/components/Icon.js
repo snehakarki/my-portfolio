@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Icon.css";
 
-const Icon = ({ name, icon }) => {
+const Icon = ({ name, icon, onDoubleClick }) => {
   return (
-    <div className="icon">
+    <div className="icon" onDoubleClick={onDoubleClick}>
       <img src={icon} alt={name} className="icon-img" />
-      <p>{name}</p>
+      <p className="icon-text">{name}</p>
     </div>
   );
 };
