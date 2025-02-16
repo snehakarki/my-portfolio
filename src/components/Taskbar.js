@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaWindows } from "react-icons/fa";
 import "../styles/Taskbar.css";
 
-const Taskbar = ({ openWindows, onClose, onRestore }) => {
+const Taskbar = ({ openWindows, onRestore }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Taskbar = ({ openWindows, onClose, onRestore }) => {
           <FaWindows size={20} />
         </button>
 
-        {/* Docked Windows */}
+        {/* Docked Windows in Taskbar */}
         {openWindows.map((win) => (
           <button key={win.id} className="taskbar-window" onClick={() => onRestore(win)}>
             <img src={win.icon} alt={win.name} className="taskbar-icon" />
