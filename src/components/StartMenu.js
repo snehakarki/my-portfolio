@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/StartMenu.css";
+import { FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa"; // Importing icons
 
 const StartMenu = ({ isOpen }) => {
   if (!isOpen) return null;
@@ -27,18 +28,16 @@ const StartMenu = ({ isOpen }) => {
         {/* Right Side: Description */}
         <div className="start-right">
           <h1>Sneha Karki</h1>
-          <p className="description">
-            Software Developer | Web & AI Enthusiast
-          </p>
+          <p className="description">Software Developer | Web & AI Enthusiast</p>
           <p className="about-me">
-            I specialize in Full Stack Development, AI/ML, and building efficient, high-performance applications. Currently exploring new technologies to enhance my skill set.
+            A software developer skilled in full-stack development, AI, and mobile apps. I build scalable solutions with React, Python (Tornado), and Flutter, optimizing performance and user experience.
           </p>
         </div>
       </div>
 
       {/* Tech Stack Section */}
       <div className="tech-stack">
-        <h3>Tech Stack: </h3>
+        <h3>Tech Stack:</h3>
         <div className="tech-icons">
           {techStackIcons.map((tech) => (
             <img key={tech.name} src={tech.src} alt={tech.name} className="tech-icon" />
@@ -46,13 +45,27 @@ const StartMenu = ({ isOpen }) => {
         </div>
       </div>
 
-      {/* Bottom Section with Contact Info */}
+      {/* Bottom Section with Chat Message & Socials */}
       <div className="start-menu-footer">
-        <div className="contact-info">
-          <p>Email: <a href="mailto:sneha25karki@gmail.com">sneha25karki@gmail.com</a></p>
-          <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
-          <p>Instagram: <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">instagram.com/yourprofile</a></p>
+        {/* Left Side - Chat Message */}
+        <div className="footer-message">
+          <p> Let's Chat about building cool stuff! Reach out and say hi! ☕</p>
+        </div>
+
+        {/* Right Side - Social Links */}
+        <div className="social-icons">
+          <a href="mailto:sneha25karki@gmail.com" target="_blank" rel="noopener noreferrer">
+            <FaEnvelope className="social-icon" />
+          </a>
+          <a href="tel:+917668236690">
+            <FaPhone className="social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/sneha-k-82aa751ba/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="social-icon" />
+          </a>
         </div>
       </div>
     </div>
