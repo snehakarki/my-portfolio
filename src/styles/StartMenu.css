@@ -1,0 +1,142 @@
+.start-menu {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 700px;
+    background: rgba(30, 30, 30, 0.95);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  /* Content Section */
+  .start-menu-content {
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+
+  }
+  
+  /* Left Side: Profile Picture */
+  .start-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid rgba(108, 105, 105, 0.2); /* Border to separate the sections */
+    padding-right: 30px;
+  }
+  
+  /* Profile Picture */
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: .5px solid rgb(128, 134, 134);
+    box-shadow: 0px 0px 30px rgba(73, 72, 72, 0.84);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.15);
+    box-shadow: 0px 0px 40px rgba(73, 72, 72, 0.9); /* Enlarged shadow on hover */
+  }
+  
+  /* Right Side: Description */
+  .start-right {
+    flex: 2;
+    padding: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  
+  /* Title & Description */
+  .start-right h1 {
+    margin: 0;
+    font-size: 26px; /* Larger font size for name */
+    font-weight: 600;
+    color: #deab51; /* Highlight name with a golden color */
+  }
+  
+  .start-right p {
+    font-size: 18px;
+    margin: 5px 0;
+    opacity: 0.9;
+    font-display: justify;
+  }
+  
+  .start-right .description {
+    font-weight: 500;
+    color: #f1f1f1;
+  }
+  
+  .start-right .about-me {
+    font-size: 16px;
+    color: #bbb;
+  }
+  
+  /* Bottom Section */
+  .start-menu-footer {
+    padding: 15px 20px;
+    text-align: center;
+    background: rgba(20, 20, 20, 0.9);
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Footer Contact Information */
+  .start-menu-footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  .start-menu-footer a {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+  
+  .start-menu-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Tech Stack Section */
+  .tech-stack {
+    margin-top: 20px;
+    padding-top: 20px; /* Space between profile and tech stack */
+    border-top: 2px solid rgba(255, 255, 255, 0.2); /* Border separating from the profile section */
+  }
+  
+  .tech-stack h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f1f1f1;
+  }
+  
+  /* Tech Icons */
+  .tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 25px;
+    justify-content: center;
+  }
+  
+  .tech-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.7s ease, box-shadow 0.3s ease;
+  }
+  
+  .tech-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+    box-shadow: 0px 0px 10px rgba(73, 72, 72, 0.7); /* Adding shadow on hover for icons */
+  }
+  

@@ -17,16 +17,14 @@ const icons = [
 ];
 
   const openWindow = (icon) => {
-    // If already open, bring it to focus
+  
     if (windowRefs[icon.id] && !windowRefs[icon.id].closed) {
       windowRefs[icon.id].focus();
       return;
     }
 
-    // Open a new popup window
     const popup = window.open(icon.url, icon.name, "width=800,height=600,left=200,top=100");
 
-    // Store reference and update taskbar
     setWindowRefs((prev) => ({ ...prev, [icon.id]: popup }));
     setOpenWindows((prevWindows) =>
       prevWindows.some((win) => win.id === icon.id) ? prevWindows : [...prevWindows, { id: icon.id, name: icon.name, icon: icon.icon }]
@@ -40,12 +38,10 @@ const icons = [
     setWindowRefs((prev) => ({ ...prev, [id]: null }));
   };
 
-  // Remove closed windows from the taskbar
-  
   useEffect(() => {
     const checkWindows = () => {
       setOpenWindows((prevWindows) =>
-        prevWindows.filter((win) => windowRefs[win.id] && !windowRefs[win.id].closed) // Keep only open popups
+        prevWindows.filter((win) => windowRefs[win.id] && !windowRefs[win.id].closed) 
       );
     };
 

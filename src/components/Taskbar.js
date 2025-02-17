@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FaWindows } from "react-icons/fa";
+import StartMenu from "./StartMenu"; // Import the StartMenu component
 import "../styles/Taskbar.css";
 
 const Taskbar = ({ openWindows, onRestore }) => {
   const [time, setTime] = useState(new Date());
+  const [startMenuOpen, setStartMenuOpen] = useState(false); // State to control Start Menu
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
@@ -17,11 +19,10 @@ const Taskbar = ({ openWindows, onRestore }) => {
       </div>
 
       <div className="center-section">
-        <button className="start-btn">
+        <button className="start-btn" onClick={() => setStartMenuOpen(!startMenuOpen)}>
           <FaWindows size={20} />
         </button>
 
-        {/* Docked Windows in Taskbar */}
         {openWindows.map((win) => (
           <button key={win.id} className="taskbar-window" onClick={() => onRestore(win)}>
             <img src={win.icon} alt={win.name} className="taskbar-icon" />
@@ -33,6 +34,9 @@ const Taskbar = ({ openWindows, onRestore }) => {
         <span>{time.toLocaleDateString()}</span>
         <span>{time.toLocaleTimeString()}</span>
       </div>
+
+      {/* Start Menu Component */}
+      <StartMenu isOpen={startMenuOpen} />
     </div>
   );
 };
