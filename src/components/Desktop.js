@@ -7,14 +7,14 @@ import leetcodeIcon from "../assets/icons/leetcode_icon.png";
 import "../styles/Desktop.css";
 
 const Desktop = () => {
-  const [openWindows, setOpenWindows] = useState([]); // Tracks open windows in the taskbar
-  const [windowRefs, setWindowRefs] = useState({}); // Store references to popup windows
+  const [openWindows, setOpenWindows] = useState([]); 
+  const [windowRefs, setWindowRefs] = useState({});
 
-  const icons = [
-    { id: "resume", name: "Resume", icon: resumeIcon, url: "https://example.com/resume" },
-    { id: "projects", name: "Projects", icon: githubIcon, url: "https://github.com/snehakarki" },
-    { id: "leetcode", name: "Leetcode", icon: leetcodeIcon, url: "https://leetcode.com/u/carkey_25/" },
-  ];
+const icons = [
+  { id: "resume", name: "Resume", icon: resumeIcon, url: "/resume.pdf" },
+  { id: "projects", name: "Github", icon: githubIcon, url: "https://github.com/snehakarki" },
+  { id: "leetcode", name: "Leetcode", icon: leetcodeIcon, url: "https://leetcode.com/u/carkey_25/" },
+];
 
   const openWindow = (icon) => {
     // If already open, bring it to focus
@@ -41,6 +41,7 @@ const Desktop = () => {
   };
 
   // Remove closed windows from the taskbar
+  
   useEffect(() => {
     const checkWindows = () => {
       setOpenWindows((prevWindows) =>
@@ -52,6 +53,7 @@ const Desktop = () => {
     return () => window.removeEventListener("focus", checkWindows);
   }, [windowRefs]);
 
+  
   return (
     <div className="desktop">
       {icons.map((icon) => (
