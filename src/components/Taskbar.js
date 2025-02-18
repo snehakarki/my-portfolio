@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { FaWindows } from "react-icons/fa";
-import StartMenu from "./StartMenu"; // Import the StartMenu component
+import StartMenu from "./StartMenu"; 
 import "../styles/Taskbar.css";
 
 const Taskbar = ({ openWindows, onRestore }) => {
   const [time, setTime] = useState(new Date());
-  const [startMenuOpen, setStartMenuOpen] = useState(false); // State to control Start Menu
+  const [startMenuOpen, setStartMenuOpen] = useState(false); 
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleStartMenuToggle = () => {
+    setStartMenuOpen((prevState) => !prevState); 
+  };
+
+  const handleStartMenuClose = () => {
+    setStartMenuOpen(false); 
+  };
 
   return (
     <div className="taskbar">
@@ -19,7 +27,7 @@ const Taskbar = ({ openWindows, onRestore }) => {
       </div>
 
       <div className="center-section">
-        <button className="start-btn" onClick={() => setStartMenuOpen(!startMenuOpen)}>
+        <button className="start-btn" onClick={handleStartMenuToggle}>
           <FaWindows size={20} />
         </button>
 
@@ -35,8 +43,8 @@ const Taskbar = ({ openWindows, onRestore }) => {
         <span>{time.toLocaleTimeString()}</span>
       </div>
 
-      {/* Start Menu Component */}
-      <StartMenu isOpen={startMenuOpen} />
+      {/* Start Menu Component with the Close Function passed */}
+      <StartMenu isOpen={startMenuOpen} onClose={handleStartMenuClose} />
     </div>
   );
 };
