@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/Popup.css"; 
 
 const Popup = ({ onClose }) => {
-  const popupRef = useRef(null); 
+  const popupRef = useRef(null);
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -11,29 +12,36 @@ const Popup = ({ onClose }) => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside); 
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside); 
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
 
   return (
     <div className="popup-overlay">
-      <div className="popup-container" ref={popupRef}>
-        <h2 className="popup-title">✨ Hey there, explorer! ✨</h2>
-        <p className="popup-text">
-          You’ve just stumbled into my little digital universe—where creativity meets a sprinkle of chaos! 🚀💡
-        </p>
-        <p className="popup-text">
-          I love building things (sometimes with code, sometimes with yarn 🧶), and this space is a peek into my world.
-        </p>
-        <p className="popup-text">
-          Click around, have fun, and maybe, just maybe, you’ll find something cool! 😏
-        </p>
-        <button className="popup-close-btn" onClick={onClose}>
-          🚀 Let’s Go!
-        </button>
+      <div className={`popup-container ${showMessage ? "message-mode" : ""}`} ref={popupRef}>
+        {!showMessage ? (
+          <img
+            src="/image.png" 
+            className="popup-meme"
+            onClick={() => setShowMessage(true)}
+          />
+        ) : (
+          <div className="popup-message">
+            <h2 className="popup-title">👀 Oops, you caught me!</h2>
+            <p className="popup-text">
+              Typing furiously, explaining things (mostly to myself)... welcome to my organized chaos! 🚀💻  
+            </p>
+            <p className="popup-text">
+              If you spot a bug… shhh, it's a feature. 😉🐞  
+            </p>
+            <button className="popup-close-btn" onClick={onClose}>
+              🚀 Got it, time to explore!
+            </button>
+          </div>
+
+        )}
       </div>
     </div>
   );
