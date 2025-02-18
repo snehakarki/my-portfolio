@@ -1,6 +1,10 @@
 import React from "react";
 import "../styles/StartMenu.css";
-import { FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa"; // Importing icons
+import { 
+  FaLinkedin, FaInstagram, FaEnvelope, FaPhone, 
+  FaMapMarkerAlt, FaUniversity, FaCode, 
+  FaPlane, FaYarn, FaPen 
+} from "react-icons/fa"; 
 
 const StartMenu = ({ isOpen }) => {
   if (!isOpen) return null;
@@ -14,7 +18,6 @@ const StartMenu = ({ isOpen }) => {
     { name: "MySQL", src: "/assets/mysql.png" },
     { name: "Redis", src: "/assets/redis.png" },
     { name: "React", src: "/assets/reactjs.png" },
-    { name: "Node.js", src: "/assets/nodejs.png" },
   ];
 
   return (
@@ -30,8 +33,18 @@ const StartMenu = ({ isOpen }) => {
           <h1>Sneha Karki</h1>
           <p className="description">Software Developer | Web & AI Enthusiast</p>
           <p className="about-me">
-            A software developer skilled in full-stack development, AI, and mobile apps. I build scalable solutions with React, Python (Tornado), and Flutter, optimizing performance and user experience.
+            I love building apps that solve real problems and exploring AI-driven solutions. Skilled in React, Python and Flutter, I create seamless, efficient, and intelligent applications.
           </p>
+
+          {/* Education & Location Section */}
+          <div className="education-location">
+            <p>
+              <FaUniversity className="edu-icon" /> <strong>Graphic Era University</strong> (BTech CSE '25)
+            </p>
+            <p>
+              <FaMapMarkerAlt className="location-icon" /> Haldwani, India
+            </p>
+          </div>
         </div>
       </div>
 
@@ -45,14 +58,33 @@ const StartMenu = ({ isOpen }) => {
         </div>
       </div>
 
+      {/* Interests Section */}
+      <div className="interests-container">
+        <h3>Passions and Pastimes:</h3>
+        <div className="interests">
+          <div className="interest-item">
+            <FaCode className="interest-icon fa-code" /> <span> Development</span>
+          </div>
+          <div className="interest-item">
+            <FaYarn className="interest-icon fa-yarn" /> <span>Crocheting</span>
+          </div>
+          <div className="interest-item">
+            <FaPen className="interest-icon fa-pen" /> <span>Writing</span>
+          </div>
+          <div className="interest-item">
+            <FaPlane className="interest-icon fa-plane" /> <span>Traveling</span>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Section with Chat Message & Socials */}
       <div className="start-menu-footer">
-        {/* Left Side - Chat Message */}
+       
         <div className="footer-message">
           <p> Let's Chat about building cool stuff! Reach out and say hi! ☕</p>
         </div>
 
-        {/* Right Side - Social Links */}
+       
         <div className="social-icons">
           <a href="mailto:sneha25karki@gmail.com" target="_blank" rel="noopener noreferrer">
             <FaEnvelope className="social-icon" />
