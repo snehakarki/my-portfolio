@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/StartMenu.css";
-import {
-  FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin,
-  FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaUniversity
-} from "react-icons/fa";
+import { FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+
+import Profile from "./StartMenuSections/Profile";
+import Experience from "./StartMenuSections/Experience";
+import TechStack from "./StartMenuSections/Techstack";
+import Projects from "./StartMenuSections/Projects";
 
 const StartMenu = ({ isOpen, onClose }) => {
   const menuRef = useRef(null);
@@ -47,50 +49,12 @@ const StartMenu = ({ isOpen, onClose }) => {
         </ul>
       </div>
 
-      {/* Right Panel */}
+      {/* Right Content Panel (Dynamic Section) */}
       <div className="start-content">
-        {selectedSection === "profile" && (
-          <div className="profile-section">
-            <img src="/profile.jpg" alt="Profile" className="profile-pic" />
-            <h1>Sneha Karki</h1>
-            <p>Software Developer | Web & AI Enthusiast</p>
-            <p>
-              <FaUniversity /> Graphic Era University (BTech CSE '25) <br />
-              <FaMapMarkerAlt /> Haldwani, India
-            </p>
-          </div>
-        )}
-
-        {selectedSection === "experience" && (
-          <div className="experience-section">
-            <h2>Experience</h2>
-            <ul>
-              <li>💼 PayPal - Software Engineer Intern</li>
-              <li>💻 Cehpoint - Application Development Intern</li>
-            </ul>
-          </div>
-        )}
-
-        {selectedSection === "techstack" && (
-          <div className="tech-stack">
-            <h2>Tech Stack</h2>
-            <div className="tech-icons">
-              {["flutter", "dart", "java", "android", "firebase", "mysql", "redis", "reactjs"].map((tech) => (
-                <img key={tech} src={`/assets/${tech}.png`} alt={tech} className="tech-icon" />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {selectedSection === "projects" && (
-          <div className="projects-section">
-            <h2>Projects</h2>
-            <ul>
-              <li>🔹 Portfolio Website</li>
-              <li>🔹 AI-powered Chest X-ray Classification</li>
-            </ul>
-          </div>
-        )}
+        {selectedSection === "profile" && <Profile />}
+        {selectedSection === "experience" && <Experience />}
+        {selectedSection === "techstack" && <TechStack />}
+        {selectedSection === "projects" && <Projects />}
       </div>
 
       {/* Footer */}
