@@ -13,7 +13,7 @@ const Profile = () => {
       {/* Name & Current Role */}
       <h1 className="profile-name">Sneha Karki</h1>
       <p className="current-role">
-        <FaBriefcase /> Software Engineer @ <strong>PayPal</strong>
+        <FaBriefcase /> Upcoming Software Engineer @ <strong>PayPal</strong>
       </p>
 
       {/* Bio */}
@@ -28,7 +28,7 @@ const Profile = () => {
           <FaUniversity className="edu-icon" /> <strong>Graphic Era University</strong> (BTech CSE '25)
         </p>
         <p>
-          <FaMapMarkerAlt className="location-icon" /> Haldwani, India
+          <FaMapMarkerAlt className="location-icon" /> Hyderabad, India
         </p>
       </div>
 
