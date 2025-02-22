@@ -1,19 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/StartMenu.css";
-import { 
-  FaUser, FaLaptopCode, FaTools, 
-  FaBook, FaProjectDiagram, FaEnvelope
-} from "react-icons/fa"; 
+import {
+  FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin,
+  FaInstagram, FaEnvelope, FaPhone, FaMapMarkerAlt, FaUniversity
+} from "react-icons/fa";
 
 const StartMenu = ({ isOpen, onClose }) => {
-  const [activeSection, setActiveSection] = useState("experience");
-  const [isExpanded, setIsExpanded] = useState(false);
   const menuRef = useRef(null);
+  const [selectedSection, setSelectedSection] = useState("profile");
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        onClose(); 
+        onClose();
       }
     };
 
@@ -31,73 +30,85 @@ const StartMenu = ({ isOpen, onClose }) => {
   return (
     <div className="start-menu" ref={menuRef}>
       {/* Left Sidebar */}
-      <div 
-        className={`start-left-sidebar ${isExpanded ? "expanded" : ""}`} 
-        onMouseEnter={() => setIsExpanded(true)}
-        onMouseLeave={() => setIsExpanded(false)}
-      >
-        {[
-          { icon: <FaUser />, label: "About", section: "about" },
-          { icon: <FaLaptopCode />, label: "Tech Stack", section: "techStack" },
-          { icon: <FaTools />, label: "Experience", section: "experience" },
-          { icon: <FaBook />, label: "Education", section: "education" },
-          { icon: <FaProjectDiagram />, label: "Projects", section: "projects" },
-          { icon: <FaEnvelope />, label: "Contact", section: "contact" },
-        ].map((item) => (
-          <div 
-            key={item.section} 
-            className={`sidebar-item ${activeSection === item.section ? "active" : ""}`}
-            onClick={() => setActiveSection(item.section)}
-          >
-            {item.icon} <span>{item.label}</span>
-          </div>
-        ))}
+      <div className="start-sidebar">
+        <ul>
+          <li className={selectedSection === "profile" ? "active" : ""} onClick={() => setSelectedSection("profile")}>
+            <FaUser /> Profile
+          </li>
+          <li className={selectedSection === "experience" ? "active" : ""} onClick={() => setSelectedSection("experience")}>
+            <FaBriefcase /> Experience
+          </li>
+          <li className={selectedSection === "techstack" ? "active" : ""} onClick={() => setSelectedSection("techstack")}>
+            <FaLaptopCode /> Tech Stack
+          </li>
+          <li className={selectedSection === "projects" ? "active" : ""} onClick={() => setSelectedSection("projects")}>
+            <FaProjectDiagram /> Projects
+          </li>
+        </ul>
       </div>
 
-      {/* Right Content Section */}
-      <div className="start-right">
-        {activeSection === "about" && (
-          <div>
+      {/* Right Panel */}
+      <div className="start-content">
+        {selectedSection === "profile" && (
+          <div className="profile-section">
+            <img src="/profile.jpg" alt="Profile" className="profile-pic" />
             <h1>Sneha Karki</h1>
-            <p>Software Engineer | Web & AI Enthusiast</p>
+            <p>Software Developer | Web & AI Enthusiast</p>
+            <p>
+              <FaUniversity /> Graphic Era University (BTech CSE '25) <br />
+              <FaMapMarkerAlt /> Haldwani, India
+            </p>
           </div>
         )}
-        {activeSection === "techStack" && (
-          <div>
+
+        {selectedSection === "experience" && (
+          <div className="experience-section">
+            <h2>Experience</h2>
+            <ul>
+              <li>💼 PayPal - Software Engineer Intern</li>
+              <li>💻 Cehpoint - Application Development Intern</li>
+            </ul>
+          </div>
+        )}
+
+        {selectedSection === "techstack" && (
+          <div className="tech-stack">
             <h2>Tech Stack</h2>
             <div className="tech-icons">
-              {["React", "Node.js", "Flutter", "Python", "Redis"].map((tech) => (
-                <div key={tech} className="tech-item">{tech}</div>
+              {["flutter", "dart", "java", "android", "firebase", "mysql", "redis", "reactjs"].map((tech) => (
+                <img key={tech} src={`/assets/${tech}.png`} alt={tech} className="tech-icon" />
               ))}
             </div>
           </div>
         )}
-        {activeSection === "experience" && (
-          <div>
-            <h2>Experience</h2>
-            <p>Software Engineer at PayPal (Upcoming)</p>
-            <p>Intern at PayPal & CEHPoint</p>
-          </div>
-        )}
-        {activeSection === "education" && (
-          <div>
-            <h2>Education</h2>
-            <p>BTech CSE, Graphic Era University (2025)</p>
-          </div>
-        )}
-        {activeSection === "projects" && (
-          <div>
+
+        {selectedSection === "projects" && (
+          <div className="projects-section">
             <h2>Projects</h2>
-            <p>AI-powered Chest X-Ray Classification, Portfolio Desktop UI</p>
+            <ul>
+              <li>🔹 Portfolio Website</li>
+              <li>🔹 AI-powered Chest X-ray Classification</li>
+            </ul>
           </div>
         )}
-        {activeSection === "contact" && (
-          <div>
-            <h2>Contact</h2>
-            <p>Email: sneha25karki@gmail.com</p>
-            <p>LinkedIn: linkedin.com/in/sneha-k-82aa751ba</p>
-          </div>
-        )}
+      </div>
+
+      {/* Footer */}
+      <div className="start-menu-footer">
+        <div className="social-icons">
+          <a href="mailto:sneha25karki@gmail.com" target="_blank" rel="noopener noreferrer">
+            <FaEnvelope className="social-icon" />
+          </a>
+          <a href="tel:+917668236690">
+            <FaPhone className="social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/sneha-k-82aa751ba/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/s._.karki" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="social-icon" />
+          </a>
+        </div>
       </div>
     </div>
   );
