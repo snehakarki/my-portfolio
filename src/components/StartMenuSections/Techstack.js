@@ -10,9 +10,10 @@ const TechStack = () => {
     { name: "Python", img: "python.png", usedIn: "PayPal Intern Project" },
     { name: "Flutter", img: "flutter.png", usedIn: "Thaiseva App (Cehpoint)" },
     { name: "React.js", img: "reactjs.png", usedIn: "Portfolio Website" },
+    { name: "TensorFlow", img: "tensorflow.png", usedIn: "Image Processing Projects" },
     { name: "Redis", img: "redis.png", usedIn: "PayPal Intern Project" },
     { name: "Firebase", img: "firebase.png", usedIn: "Thaiseva App (Cehpoint)" },
-    { name: "MySQL", img: "mysql.png", usedIn: "Backend Development" },
+    { name: "MySQL", img: "mysql.png", usedIn: "Paypal Intern Project" },
     { name: "Android Development", img: "android.png", usedIn: "Thaiseva App (Cehpoint)"},
   ];
 
