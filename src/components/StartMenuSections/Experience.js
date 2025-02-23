@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../../styles/Experience.css";
 import { FaBriefcase } from "react-icons/fa";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Import arrow icons
 
 const experiences = [
   {
@@ -61,7 +60,7 @@ const Experience = () => {
         <div key={index} className={`experience-card ${expandedIndex === index ? "expanded" : ""}`}>
           {/* Expand/Collapse Arrow Button */}
           <button className="expand-btn" onClick={() => toggleExpand(index)}>
-            {expandedIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+            {expandedIndex === index ? "▼" : "▶"}
           </button>
 
           {/* Unhovered View */}
