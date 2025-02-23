@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../../styles/Experience.css";
 import { FaBriefcase } from "react-icons/fa";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; 
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // Import arrow icons
 
 const experiences = [
   {
@@ -35,6 +35,20 @@ const experiences = [
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const contentRefs = useRef([]); // Store refs for each content section
+
+  useEffect(() => {
+    experiences.forEach((_, index) => {
+      if (contentRefs.current[index]) {
+        const content = contentRefs.current[index];
+        if (expandedIndex === index) {
+          content.style.height = content.scrollHeight + "px"; // Set height dynamically
+        } else {
+          content.style.height = "0px"; // Collapse smoothly
+        }
+      }
+    });
+  }, [expandedIndex]);
 
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -44,17 +58,14 @@ const Experience = () => {
     <div className="experience-section">
       <h2>Experience</h2>
       {experiences.map((exp, index) => (
-        <div 
-          key={index} 
-          className={`experience-card ${expandedIndex === index ? "expanded" : ""}`} 
-          onClick={() => toggleExpand(index)} 
-        >
-          <div className="expand-btn">
+        <div key={index} className={`experience-card ${expandedIndex === index ? "expanded" : ""}`}>
+          {/* Expand/Collapse Arrow Button */}
+          <button className="expand-btn" onClick={() => toggleExpand(index)}>
             {expandedIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-          </div>
+          </button>
 
           {/* Unhovered View */}
-          <div className="experience-summary">
+          <div className="experience-summary" onClick={() => toggleExpand(index)}>
             <div className="left">
               <FaBriefcase className="experience-icon" />
               <div className="experience-detail">
@@ -69,15 +80,16 @@ const Experience = () => {
           </div>
 
           {/* Expanded View */}
-          {expandedIndex === index && (
-            <div className="experience-details">
-              <ul>
-                {exp.details.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div
+            className="experience-details"
+            ref={(el) => (contentRefs.current[index] = el)} // Store ref
+          >
+            <ul>
+              {exp.details.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </div>
