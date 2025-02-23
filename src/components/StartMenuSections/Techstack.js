@@ -1,26 +1,32 @@
 import React from "react";
 import "../../styles/Techstack.css"; 
 
-const techStack = [
-  { name: "Flutter", file: "flutter.png" },
-  { name: "Dart", file: "dart.png" },
-  { name: "Java", file: "java.png" },
-  { name: "Android Development", file: "android.png" },
-  { name: "Firebase", file: "firebase.png" },
-  { name: "MySQL", file: "mysql.png" },
-  { name: "Redis", file: "redis.png" },
-  { name: "React.js", file: "reactjs.png" }
-];
-
 const TechStack = () => {
+  const techStack = [
+    { name: "C++", img: "c++.png", usedIn: "College CourseWork" },
+    { name: "C", img: "C.png", usedIn: "College CourseWork" },
+    { name: "Java", img: "java.png", usedIn: "College CourseWork" },
+    { name: "Dart", img: "dart.png", usedIn: "Thaiseva App (Cehpoint)" },
+    { name: "Python", img: "python.png", usedIn: "PayPal Intern Project" },
+    { name: "Flutter", img: "flutter.png", usedIn: "Thaiseva App (Cehpoint)" },
+    { name: "React.js", img: "reactjs.png", usedIn: "Portfolio Website" },
+    { name: "Redis", img: "redis.png", usedIn: "PayPal Intern Project" },
+    { name: "Firebase", img: "firebase.png", usedIn: "Thaiseva App (Cehpoint)" },
+    { name: "MySQL", img: "mysql.png", usedIn: "Backend Development" },
+    { name: "Android Development", img: "android.png", usedIn: "Thaiseva App (Cehpoint)"},
+  ];
+
   return (
     <div className="tech-stack">
       <h2>Tech Stack</h2>
       <div className="tech-container">
         {techStack.map((tech) => (
           <div key={tech.name} className="tech-box">
-            <img src={`/assets/${tech.file}`} alt={tech.name} className="tech-icon" />
-            <p className="tech-name">{tech.name}</p>
+            <img src={`/assets/${tech.img}`} alt={tech.name} className="tech-icon" />
+            <div className="tech-info">
+              <p className="tech-name">{tech.name}</p>
+              <p className="tech-project">{tech.usedIn}</p>
+            </div>
           </div>
         ))}
       </div>

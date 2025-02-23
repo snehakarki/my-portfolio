@@ -1,47 +1,84 @@
 .tech-stack {
     text-align: center;
     color: #d0e1ff;
-    padding: 10px 20px;
+    overflow-y: auto;
+    max-height: 600px;
+    scrollbar-width: thin; 
+    scrollbar-color: rgba(255, 255, 255, 0) transparent; 
+    padding: 10px;
 }
 
 .tech-container {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+ 
 }
 
+.tech-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  
 
 .tech-box {
-    border-radius: 10px;
-    padding: 5px;  
+    position: relative;
+    cursor: pointer;
+    background: #50a8eb00;
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;  
+    height: 100px;  
     display: flex;
-    margin: 5px;   
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
     transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    width: 110px; 
-    height: 110px; 
+    overflow: hidden;
 }
 
 .tech-box:hover {
     transform: scale(1.1);
-    background: rgba(86, 176, 244, 0.2);
+    background: #50a8eb13;
 }
-
 
 .tech-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px; 
+    height: 80px;
     object-fit: contain;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+.tech-box:hover .tech-icon {
+    opacity: 0;
+    transform: scale(0.2);
+}
+
+.tech-info {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s; 
+}
+
+.tech-box:hover .tech-info {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; 
+}
 
 .tech-name {
-    font-size: 14px;
+    font-size: 16px;
     color: #d0e1ff;
-    margin-top: 5px;
     font-weight: bold;
-    text-align: center;
+    padding: 0px 10px;
+}
+
+.tech-project {
+    font-size: 11px;
+    color: #99c0ff;
+    padding: 0px 10px;
+    margin-top: 3px;
 }
