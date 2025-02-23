@@ -10,11 +10,11 @@ const experiences = [
     role: "Software Engineer Intern",
     location: "Hyderabad, India",
     details: [
-      "Built a cookie banner for Chargehound (a PayPal service).",
-      "Integrated and built APIs for the Redis Queues Management Dashboard using Python & Tornado.",
-      "Optimized searching & filtering logic for the dashboard, improving efficiency by 80%.",
-      "Developed the front-end using ReactJS for smooth user interaction.",
-      "Implemented unit tests for Python APIs, achieving 86% code coverage.",
+      "Built a <strong>cookie banner</strong> for Chargehound (a PayPal service).",
+      "Integrated and built <strong>APIs</strong> for the <strong>Redis Queues Management Dashboard</strong> using <strong>Python & Tornado</strong>.",
+      "Optimized <strong>searching & filtering logic</strong> for the dashboard, improving efficiency by <strong>80%</strong>.",
+      "Developed the front-end using <strong>ReactJS</strong> for smooth user interaction.",
+      "Implemented <strong>unit tests</strong> for Python APIs, achieving <strong>86% code coverage</strong>.",
     ],
   },
   {
@@ -23,28 +23,28 @@ const experiences = [
     role: "Application Development Intern",
     location: "Remote",
     details: [
-      "Developed the food domain for the Thaiseva app, integrating car booking, hotel reservations, and food ordering.",
-      "Used Dart & Flutter for a responsive front-end.",
-      "Managed the Firebase database for smooth data storage and retrieval.",
-      "Integrated Google Maps API for location tracking.",
-      "Implemented Instamojo for secure payments, improving user experience.",
-      "Developed a restaurant portal for eateries to register and showcase dishes.",
+      "Developed the <strong>food domain</strong> for the <strong>Thaiseva app</strong>, integrating <strong>car booking, hotel reservations, and food ordering</strong>.",
+      "Used <strong>Dart & Flutter</strong> for a responsive front-end.",
+      "Managed the <strong>Firebase database</strong> for smooth data storage and retrieval.",
+      "Integrated <strong>Google Maps API</strong> for location tracking.",
+      "Implemented <strong>Instamojo</strong> for secure payments, improving user experience.",
+      "Developed a <strong>restaurant portal</strong> for eateries to register and showcase dishes.",
     ],
   },
 ];
 
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const contentRefs = useRef([]); // Store refs for each content section
+  const contentRefs = useRef([]); 
 
   useEffect(() => {
     experiences.forEach((_, index) => {
       if (contentRefs.current[index]) {
         const content = contentRefs.current[index];
         if (expandedIndex === index) {
-          content.style.height = content.scrollHeight + "px"; // Set height dynamically
+          content.style.height = content.scrollHeight + "px"; 
         } else {
-          content.style.height = "0px"; // Collapse smoothly
+          content.style.height = "0px";
         }
       }
     });
@@ -80,16 +80,16 @@ const Experience = () => {
           </div>
 
           {/* Expanded View */}
-          <div
-            className="experience-details"
-            ref={(el) => (contentRefs.current[index] = el)} // Store ref
-          >
-            <ul>
-              {exp.details.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </div>
+            <div
+              className="experience-details"
+              ref={(el) => (contentRefs.current[index] = el)}
+            >
+              <ul>
+                {exp.details.map((point, i) => (
+                  <li key={i} dangerouslySetInnerHTML={{ __html: point }}></li>
+                ))}
+              </ul>
+            </div>
         </div>
       ))}
     </div>
