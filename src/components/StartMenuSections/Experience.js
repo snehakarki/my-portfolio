@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Experience.css";
 import { FaBriefcase } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"; 
 
 const experiences = [
   {
@@ -17,7 +18,7 @@ const experiences = [
     ],
   },
   {
-    company: "Cehpoint E-Learning ",
+    company: "Cehpoint E-Learning",
     duration: "Sept 2023 – Dec 2023",
     role: "Application Development Intern",
     location: "Remote",
@@ -35,16 +36,23 @@ const experiences = [
 const Experience = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
     <div className="experience-section">
       <h2>Experience</h2>
       {experiences.map((exp, index) => (
-        <div
-          key={index}
-          className={`experience-card ${expandedIndex === index ? "expanded" : ""}`}
-          onMouseEnter={() => setExpandedIndex(index)}
-          onMouseLeave={() => setExpandedIndex(null)}
+        <div 
+          key={index} 
+          className={`experience-card ${expandedIndex === index ? "expanded" : ""}`} 
+          onClick={() => toggleExpand(index)} 
         >
+          <div className="expand-btn">
+            {expandedIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+          </div>
+
           {/* Unhovered View */}
           <div className="experience-summary">
             <div className="left">

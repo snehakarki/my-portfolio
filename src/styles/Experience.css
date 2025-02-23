@@ -1,113 +1,126 @@
 .experience-section {
-    max-height: 650px;
-    overflow-y: auto;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    color: #ffffff;
-    max-width: 750px;
-    scrollbar-width: thin; 
-    scrollbar-color: rgba(255, 255, 255, 0.07) transparent; 
+  max-height: 580px;
+  overflow-y: auto;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  color: #ffffff;
+  max-width: 750px;
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(255, 255, 255, 0.07) transparent; 
 }
 
 .experience-section::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    display: none;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .experience-section {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
-.experience-section h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-    color: #d0e1ff;
-  }
-  
-  .experience-icon {
-    font-size: 30px;
-    color: #005a9e;
-    padding: 10px;
-  }
-  
- 
-  .experience-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    padding: 10px 20px;
-    margin-bottom: 15px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-  }
-  
+.experience-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Ensures the content stacks vertically */
+  align-items: center; /* Centers items inside the card */
+  position: relative; /* Keeps expand button positioned properly */
+  padding-left: 40px; /* Adjust space for expand button */
+}
 
-  .experience-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-  
+/* Expand Button (Arrow) */
+.expand-btn {
+  position: absolute;
+  left: 10px; /* Position properly outside the card */
+  background: transparent;
+  border: none;
+  color: #d0e1ff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .experience-card.expanded {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
+.expand-btn:hover {
+  transform: scale(1.2);
+}
 
-  .experience-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-  }
-  
+/* Experience Summary - Unhovered View */
+.experience-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-  .left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .company-name {
-    font-size: 18px;
-    color: #d0e1ff;
-    font-weight: bold;
-  }
-  
-  .role {
-    font-size: 14px;
-    color: #99c0ff;
-  }
-  
+.company-name {
+  font-size: 18px;
+  color: #d0e1ff;
+  font-weight: bold;
+}
 
-  .right {
-    text-align: right;
-  }
-  
-  .location {
-    font-size: 14px;
-    color: #ccc;
-  }
-  
-  .duration {
-    font-size: 12px;
-    color: #999;
-  }
-  
+.role {
+  font-size: 15px;
+  color: #99c0ff;
+  margin-top: 5px;
+}
 
-  .experience-details {
-    margin-top: 10px;
-    padding: 10px;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .experience-details ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .experience-details li {
-    font-size: 14px;
-    color: #eee;
-    margin-bottom: 5px;
-  }
-  
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.experience-icon {
+  flex-shrink: 0;
+  font-size: 30px;
+  color: #1b79c2;
+}
+
+
+.experience-detail {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+.location{
+  font-size: 14px;
+  color: #eceff2;
+}
+
+.duration{
+  font-size: 12px;
+  color: #eceff2;
+}
+
+.experience-details {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  text-align: left; 
+  display: flex;
+  flex-direction: column; 
+}
+
+.experience-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.experience-details li {
+  font-size: 14px;
+  color: #eee;
+  margin-bottom: 5px;
+}
