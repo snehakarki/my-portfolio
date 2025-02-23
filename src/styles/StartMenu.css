@@ -16,7 +16,7 @@
 .start-sidebar {
   width: 180px;
   background: rgba(20, 20, 20, 0.9);
-  padding: 20px;
+  padding: 10px;
 }
 
 .start-sidebar ul {
@@ -42,7 +42,7 @@
 /* Right Panel */
 .start-content {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
 }
 
 
