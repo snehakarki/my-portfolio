@@ -1,7 +1,7 @@
 .experience-section {
   max-height: 560px;
   overflow-y: auto;
-  padding: 20px;
+  padding: 10px 20px;
   text-align: center;
   color: #d0e1ff;
   scrollbar-width: thin; 
