@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/StartMenu.css";
-import { FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin, FaInstagram, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 import Profile from "./StartMenuSections/Profile";
 import Experience from "./StartMenuSections/Experience";
@@ -49,7 +49,6 @@ const StartMenu = ({ isOpen, onClose }) => {
         </ul>
       </div>
 
-      {/* Right Content Panel (Dynamic Section) */}
       <div className="start-content">
         {selectedSection === "profile" && <Profile />}
         {selectedSection === "experience" && <Experience />}
@@ -57,14 +56,11 @@ const StartMenu = ({ isOpen, onClose }) => {
         {selectedSection === "projects" && <Projects />}
       </div>
 
-      {/* Footer */}
-      <div className="start-menu-footer">
+      <div className="start-menu-footer"> 
         <div className="social-icons">
+          <span className="mss-text">Connect with me :</span>  
           <a href="mailto:sneha25karki@gmail.com" target="_blank" rel="noopener noreferrer">
             <FaEnvelope className="social-icon" />
-          </a>
-          <a href="tel:+917668236690">
-            <FaPhone className="social-icon" />
           </a>
           <a href="https://www.linkedin.com/in/sneha-k-82aa751ba/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="social-icon" />
