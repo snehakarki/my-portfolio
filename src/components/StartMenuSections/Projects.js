@@ -1,69 +1,78 @@
 import React, { useState } from "react";
 import "../../styles/Projects.css";
 
-const projects = [
+const projectsData = [
   {
     title: "Medical AI - Chest X-ray Classification",
+    techStack: "Python, TensorFlow, Image Processing",
     date: "January 2024",
-    techStack: ["Python", "TensorFlow", "Image Processing"],
-    description: [
+    details: [
       "Designed a model trained to distinguish between images showing the presence of a specific medical condition (e.g., atelectasis) and images with no disease.",
-      "Implemented Transfer Learning to create a CNN model for binary classification based on a pretrained model, InceptionV3."
-    ]
+      "Implemented Transfer Learning using InceptionV3 to create a CNN model for binary classification."
+    ],
   },
   {
-    title: "Companion App - Mental Health Tracking",
+    title: "Companion App - Mental Health Tracking App",
+    techStack: "Flutter, Firebase, Android Studio",
     date: "June 2023",
-    techStack: ["Flutter", "Firebase", "Android Studio"],
-    description: [
-      "Created an Android application that provides users with basic utilities to maintain their mental well-being.",
-      "Implemented features like water reminders, to-do lists, breathing exercises, and therapist booking.",
-      "Integrated Cloud Firestore for real-time data and authentication services."
-    ]
+    details: [
+      "Created an Android application using Dart, Flutter, and Android Studio that provides users with utilities for mental well-being.",
+      "Implemented features like water reminder, to-do list, breathing exercises, and therapist booking.",
+      "Used Cloud Firestore for real-time data handling and Firebase Authentication for secure login."
+    ],
   },
   {
     title: "Font Recognition - Using Machine Learning",
+    techStack: "Python, Image Classification",
     date: "January 2023",
-    techStack: ["Image Classification", "Deep Learning", "CNN"],
-    description: [
+    details: [
       "Designed a deep learning model for font detection.",
-      "Developed a CNN model to classify an image into one of five different font types: Lato, Raleway, Roboto, Sansation, and Walkway.",
-      "Applied image augmentation methods to diversify the dataset."
-    ]
-  }
+      "Used a CNN model to classify images into five different font types: Lato, Raleway, Roboto, Sansation, and Walkway.",
+      "Implemented image augmentation techniques to diversify the dataset."
+    ],
+  },
 ];
 
 const Projects = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedProjects, setExpandedProjects] = useState({});
 
   const toggleExpand = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
+    setExpandedProjects((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index], 
+    }));
   };
 
   return (
     <div className="projects-section">
-      <h2 className="section-title">Projects</h2>
+      <h2>Projects</h2>
       <div className="projects-container">
-        {projects.map((project, index) => (
+        {projectsData.map((project, index) => (
           <div
             key={index}
-            className={`project-card ${expandedIndex === index ? "expanded" : ""}`}
-            onClick={() => toggleExpand(index)}
+            className={`project-card ${expandedProjects[index] ? "expanded" : ""}`}
+            onClick={() => toggleExpand(index)} 
           >
-            <button className="expand-btn">{expandedIndex === index ? "▼" : "▶"}</button>
+            <button className="expand-btn" onClick={(e) => { 
+                e.stopPropagation(); 
+                toggleExpand(index);
+              }}>
+              {expandedProjects[index] ? "▼" : "▶"}
+            </button>
+
             <div className="project-summary">
-              <div className="left">
-                <h3 className="project-title">{project.title}</h3>
+              <div>
+                <div className="project-title">{project.title}</div>
+                <div className="tech-stack">{project.techStack}</div>
               </div>
-              <div className="right">
-                <p className="project-date">{project.date}</p>
-              </div>
+              <div className="project-date">{project.date}</div>
             </div>
-            <p className="ptech-stack">{project.techStack.join(" | ")}</p>
-            <div className="project-details">
+
+            
+            <div className={`project-details ${expandedProjects[index] ? "show" : ""}`}>
               <ul>
-                {project.description.map((point, idx) => (
-                  <li key={idx}>{point}</li>
+                {project.details.map((detail, idx) => (
+                  <li key={idx}>{detail}</li>
                 ))}
               </ul>
             </div>
