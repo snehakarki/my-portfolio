@@ -22,7 +22,6 @@
   flex: 1;
 }
 
-
 .center-section {
   display: flex;
   align-items: center;
@@ -41,6 +40,10 @@
   flex: 1;
 }
 
+.start-btn-container {
+  flex-shrink: 0; /* ✅ Prevents shrinking */
+  width: 50px; /* ✅ Fixed width */
+}
 
 .start-btn {
   background: none;
@@ -51,6 +54,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   transition: background 0.3s;
+  white-space: nowrap; /* ✅ Prevents text wrapping */
 }
 
 .start-btn:hover {
