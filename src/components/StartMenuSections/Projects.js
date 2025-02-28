@@ -63,7 +63,7 @@ const Projects = () => {
             <div className="project-summary">
               <div>
                 <div className="project-title">{project.title}</div>
-                <div className="tech-stack">{project.techStack}</div>
+                <div className="ptech-stack">{project.techStack}</div>
               </div>
               <div className="project-date">{project.date}</div>
             </div>
