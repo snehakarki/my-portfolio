@@ -22,19 +22,16 @@ const Taskbar = ({ openWindows, onRestore }) => {
 
   return (
     <div className="taskbar">
-      {/* Left Section (Weather) */}
       <div className="left-section">
         <span>☁️ 20°C</span>
       </div>
 
-      {/* Center Section (Fixed Start Button) */}
       <div className="center-section">
         <button className="start-btn" onClick={handleStartMenuToggle}>
           <FaWindows size={20} />
         </button>
       </div>
 
-      {/* Taskbar Windows (Opened & Docked Icons) */}
       <div className="taskbar-windows">
         {openWindows.map((win) => (
           <button key={win.id} className="taskbar-window" onClick={() => onRestore(win)}>
@@ -43,13 +40,11 @@ const Taskbar = ({ openWindows, onRestore }) => {
         ))}
       </div>
 
-      {/* Right Section (Time & Date) */}
       <div className="right-section">
         <span>{time.toLocaleDateString()}</span>
         <span>{time.toLocaleTimeString()}</span>
       </div>
 
-      {/* Start Menu Component */}
       <StartMenu isOpen={startMenuOpen} onClose={handleStartMenuClose} />
     </div>
   );
