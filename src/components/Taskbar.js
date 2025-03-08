@@ -3,9 +3,10 @@ import { FaWindows } from "react-icons/fa";
 import StartMenu from "./StartMenu"; 
 import "../styles/Taskbar.css";
 
-const Taskbar = ({ openWindows, onRestore }) => {
+const Taskbar = ({ openWindows, onRestore, onClose }) => {
   const [time, setTime] = useState(new Date());
-  const [startMenuOpen, setStartMenuOpen] = useState(false); 
+  const [startMenuOpen, setStartMenuOpen] = useState(false);
+  const [dockedWindows, setDockedWindows] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
@@ -13,11 +14,37 @@ const Taskbar = ({ openWindows, onRestore }) => {
   }, []);
 
   const handleStartMenuToggle = () => {
-    setStartMenuOpen((prevState) => !prevState); 
+    if (startMenuOpen) {
+      setStartMenuOpen(false); 
+    } else {
+      setStartMenuOpen(true);
+    }
+  };
+  
+  const handleStartMenuClose = () => {
+    setStartMenuOpen(false);
   };
 
-  const handleStartMenuClose = () => {
-    setStartMenuOpen(false); 
+  useEffect(() => {
+    setDockedWindows((prevDocked) => {
+      let updatedDocked = [...prevDocked];
+
+      openWindows.forEach((win) => {
+        if (!updatedDocked.some((w) => w.id === win.id)) {
+          updatedDocked.push(win);
+        }
+      });
+
+      updatedDocked = updatedDocked.filter((win) =>
+        openWindows.some((w) => w.id === win.id)
+      );
+
+      return updatedDocked;
+    });
+  }, [openWindows]);
+
+  const handleClose = (win) => {
+    onClose(win); 
   };
 
   return (
@@ -32,10 +59,18 @@ const Taskbar = ({ openWindows, onRestore }) => {
         </button>
       </div>
 
-      <div className="taskbar-windows">
-        {openWindows.map((win) => (
-          <button key={win.id} className="taskbar-window" onClick={() => onRestore(win)}>
-            <img src={win.icon} alt={win.name} className="taskbar-icon" />
+      <div className="docked-icons">
+        {dockedWindows.map((win) => (
+          <button
+            key={win.id}
+            className="docked-icon"
+            onClick={() => onRestore(win)}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              handleClose(win);
+            }}
+          >
+            <img src={win.icon} alt={win.name} />
           </button>
         ))}
       </div>
