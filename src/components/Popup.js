@@ -25,6 +25,7 @@ const Popup = ({ onClose }) => {
           <img
             src="/image.png" 
             className="popup-meme"
+            alt="meme"
             onClick={() => setShowMessage(true)}
           />
         ) : (
