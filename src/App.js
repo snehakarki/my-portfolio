@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Popup from "./components/Desktop/Popup";
 import Desktop from "./components/Desktop/Desktop";
-import Mobile from "./components/Mobile/Home";
+import MobileHome from "./components/Mobile/MobileHome";
 import useIsMobile from "./hooks/useIsMobile"; 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div>
       {showPopup && <Popup onClose={() => setShowPopup(false)} />}
-      {isMobile ? <Mobile /> : <Desktop />}
+      {isMobile ? <MobileHome /> : <Desktop />}
     </div>
   );
 };
