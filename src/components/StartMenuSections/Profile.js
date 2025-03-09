@@ -5,24 +5,19 @@ import "../../styles/Profile.css";
 const Profile = () => {
   return (
     <div className="profile-section">
-      {/* Profile Picture */}
       <div className="profile-pic-container">
-        <img src="/profile.jpg" alt="Sneha Karki" className="profile-pic" />
+        <img src="./profile.jpg" alt="Sneha Karki" className="profile-pic" />
       </div>
-
-      {/* Name & Current Role */}
       <h1 className="profile-name">Sneha Karki</h1>
       <p className="current-role">
         <FaBriefcase /> Upcoming Software Engineer @ <strong>PayPal</strong>
       </p>
 
-      {/* Bio */}
       <p className="bio">
         I love building apps that solve real problems and exploring AI-driven solutions. 
         Skilled in React, Python, and Flutter, I create seamless, efficient, and intelligent applications.
       </p>
 
-      {/* Education & Location */}
       <div className="education-location">
         <p>
           <FaUniversity className="edu-icon" /> <strong>Graphic Era University</strong> (BTech CSE '25)
@@ -32,7 +27,6 @@ const Profile = () => {
         </p>
       </div>
 
-      {/* Hobbies & Interests */}
       <div className="interests-container">
         <h3>Passions and Pastimes:</h3>
         <div className="interests">
