@@ -22,4 +22,12 @@
     border-radius: 5px;
     margin-top: 20px;
   }
+  .mobile-home {
+    background: url("../../assets/mobbcg.jpg") no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
   

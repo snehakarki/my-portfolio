@@ -1,0 +1,23 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .time {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .date {
+    font-size: 14px;
+  }
+  .weather {
+    font-size: 16px;
+  }
+  
