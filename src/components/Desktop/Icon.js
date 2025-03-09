@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Icon.css";
+import "../../styles/Icon.css";
 
 const Icon = ({ name, icon, onDoubleClick }) => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../styles/StartMenu.css";
+import "../../styles/StartMenu.css";
 import { FaUser, FaLaptopCode, FaBriefcase, FaProjectDiagram, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 import Profile from "./StartMenuSections/Profile";

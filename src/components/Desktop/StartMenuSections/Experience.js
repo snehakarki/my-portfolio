@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "../../styles/Experience.css";
+import "../../../styles/Experience.css";
 import { FaBriefcase } from "react-icons/fa";
 
 const experiences = [

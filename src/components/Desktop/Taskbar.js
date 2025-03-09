@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaWindows } from "react-icons/fa";
 import StartMenu from "./StartMenu"; 
-import "../styles/Taskbar.css";
+import "../../styles/Taskbar.css";
 
 const Taskbar = ({ openWindows, onRestore, onClose }) => {
   const [time, setTime] = useState(new Date());

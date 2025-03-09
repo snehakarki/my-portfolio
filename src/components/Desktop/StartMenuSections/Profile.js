@@ -1,6 +1,6 @@
 import React from "react";
 import { FaUniversity, FaMapMarkerAlt, FaYarn, FaPlane, FaPen, FaCode, FaBriefcase } from "react-icons/fa";
-import "../../styles/Profile.css"; 
+import "../../../styles/Profile.css"; 
 
 const Profile = () => {
   return (
