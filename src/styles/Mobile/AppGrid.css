@@ -1,17 +1,20 @@
 .app-container {
-  padding: 32vh 16px 100px;
+  padding: clamp(16vh, 32vh, 40vh) clamp(8px, 4vw, 16px) clamp(60px, 15vh, 100px);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: clamp(16px, 4vw, 24px);
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-container {
   background: white;
-  border-radius: 24px;
-  padding: 12px 16px;
+  border-radius: clamp(16px, 4vw, 24px);
+  padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 16px);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(8px, 2vw, 12px);
   width: 90%;
   max-width: 600px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -21,25 +24,28 @@
 .google-icon {
   color: #4285f4;
   font-weight: bold;
-  font-size: 18px;
+  font-size: clamp(14px, 4vw, 18px);
 }
 
 .search-text {
   color: #5f6368;
   flex: 1;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
 }
 
 .mic-icon {
-  font-size: 18px;
+  font-size: clamp(14px, 4vw, 18px);
 }
 
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 64px), 1fr));
+  gap: clamp(12px, 3vw, 16px);
   text-align: center;
   justify-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .app-icon {
@@ -47,25 +53,29 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  font-size: 14px;
-  width: 64px;
+  font-size: clamp(12px, 3vw, 14px);
+  width: clamp(48px, 12vw, 64px);
 }
 
 .app-icon span {
-  font-size: 32px; 
-  margin-bottom: 6px;
+  font-size: clamp(24px, 8vw, 32px);
+  margin-bottom: clamp(4px, 1vw, 6px);
 }
 
 .app-icon p {
-  margin: 4px 0 0;
-  font-size: 11px;
+  margin: clamp(2px, 1vw, 4px) 0 0;
+  font-size: clamp(10px, 2.5vw, 11px);
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .app-icon img {
-  width: 60px;
-  height: 60px;
-  border-radius: 15px;
+  width: clamp(48px, 12vw, 60px);
+  height: clamp(48px, 12vw, 60px);
+  border-radius: clamp(12px, 3vw, 15px);
   object-fit: contain;
 }

@@ -4,30 +4,33 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #f4f4f4;
     color: #333;
   }
   
   .mobile-container h1 {
-    font-size: 24px;
+    font-size: clamp(18px, 5vw, 24px);
   }
   
   .mobile-container button {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
+    font-size: clamp(14px, 4vw, 16px);
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: clamp(16px, 4vw, 20px);
   }
   .mobile-home {
     background: url("../../assets/mobbcg.jpg") no-repeat center center/cover;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom);
   }
   

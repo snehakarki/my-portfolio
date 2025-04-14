@@ -14,12 +14,15 @@
 .project-modal {
   background: rgba(30, 30, 30, 0.9);
   width: 100%;
-  max-height: 85vh;
+  max-height: 75vh;
+  height: auto;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
   animation: slideUp 0.3s ease-out;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes slideUp {
@@ -43,6 +46,7 @@
   z-index: 1;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
 }
 
 .modal-header h2 {
@@ -90,16 +94,25 @@
 .projects-container {
   padding: 12px 16px 18px;
   width: 100%;
+  height: calc(75vh - 73px); /* Subtract header height */
   overflow-y: auto;
-  max-height: calc(85vh - 60px);
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  flex: 1;
 }
 
 .projects-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+.projects-container::-webkit-scrollbar-track {
+  display: none;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  display: none;
 }
 
 .project-card {
