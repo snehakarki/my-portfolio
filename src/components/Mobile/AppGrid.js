@@ -14,13 +14,20 @@ const apps = [
 
 const AppGrid = () => {
   return (
-    <div className="app-grid">
-      {apps.map((app) => (
-        <div key={app.id} className="app-icon">
-          <img src={app.icon} alt={app.name} />
-          <p>{app.name}</p>
-        </div>
-      ))}
+    <div className="app-container">
+      <div className="search-container">
+        <span className="google-icon">G</span>
+        <span className="search-text">Google Search</span>
+        <span className="mic-icon">🎤</span>
+      </div>
+      <div className="app-grid">
+        {apps.map((app) => (
+          <div key={app.id} className="app-icon">
+            <img src={app.icon} alt={app.name} />
+            <p>{app.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
