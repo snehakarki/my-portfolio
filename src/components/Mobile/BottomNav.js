@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "../../styles/Mobile/BottomNav.css";
 import ProjectModal from "./ProjectModal";
 import ProfileModal from "./ProfileModal";
+import MessageModal from "./MessageModal";
 
 const BottomNav = () => {
   const [showProjects, setShowProjects] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
     <>
@@ -23,7 +25,7 @@ const BottomNav = () => {
             <button className="nav-button" onClick={() => setShowProjects(true)}>
               <span>📁</span>
             </button>
-            <button className="nav-button">
+            <button className="nav-button" onClick={() => setShowMessage(true)}>
               <span>💬</span>
             </button>
           </div>
@@ -31,6 +33,7 @@ const BottomNav = () => {
       </div>
       <ProjectModal isOpen={showProjects} onClose={() => setShowProjects(false)} />
       <ProfileModal isOpen={showProfile} onClose={() => setShowProfile(false)} />
+      <MessageModal isOpen={showMessage} onClose={() => setShowMessage(false)} />
     </>
   );
 };
