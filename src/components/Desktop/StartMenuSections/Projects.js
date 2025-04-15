@@ -50,26 +50,26 @@ const Projects = () => {
         {projectsData.map((project, index) => (
           <div
             key={index}
-            className={`project-card ${expandedProjects[index] ? "expanded" : ""}`}
+            className={`desktop-project-card ${expandedProjects[index] ? "expanded" : ""}`}
             onClick={() => toggleExpand(index)} 
           >
-            <button className="expand-btn" onClick={(e) => { 
+            <button className="desktop-expand-btn" onClick={(e) => { 
                 e.stopPropagation(); 
                 toggleExpand(index);
               }}>
               {expandedProjects[index] ? "▼" : "▶"}
             </button>
 
-            <div className="project-summary">
+            <div className="desktop-project-summary">
               <div>
-                <div className="project-title">{project.title}</div>
-                <div className="ptech-stack">{project.techStack}</div>
+                <div className="desktop-project-title">{project.title}</div>
+                <div className="desktop-ptech-stack">{project.techStack}</div>
               </div>
-              <div className="project-date">{project.date}</div>
+              <div className="desktop-project-date">{project.date}</div>
             </div>
 
             
-            <div className={`project-details ${expandedProjects[index] ? "show" : ""}`}>
+            <div className={`desktop-project-details ${expandedProjects[index] ? "show" : ""}`}>
               <ul>
                 {project.details.map((detail, idx) => (
                   <li key={idx}>{detail}</li>

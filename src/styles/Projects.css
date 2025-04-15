@@ -1,7 +1,7 @@
 .projects-section {
   max-height: 600px;
   overflow-y: auto;
-  padding: 10px 20px;
+  padding: 10px 15px;
   position: fixed;
   text-align: center;
   color: #d0e1ff;
@@ -16,28 +16,33 @@
 }
 
 .projects-container {
-  width: 600px;
+  width: 100%;
+  max-width: 630px;
+  max-height: 600px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
-.project-card {
+/* Desktop-specific project card styles */
+.desktop-project-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  padding: 20px 20px;
-  margin-bottom: 15px;
+  padding: 20px 15px;
+  margin-bottom: 20px;
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 600px;
+  width: 100%;
+  max-width: 550px;
   cursor: pointer; 
 }
 
-.expand-btn {
+.desktop-expand-btn {
   position: absolute;
   left: -25px; 
   top: 50%;
@@ -45,37 +50,37 @@
   background: transparent;
   border: none;
   color: #d0e1ff;
-  font-size: 14x;
+  font-size: 14px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
-.project-summary {
+.desktop-project-summary {
   text-align: left;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.project-title {
+.desktop-project-title {
   font-size: 18px;
   color: #d0e1ff;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
-.project-date {
+.desktop-project-date {
   font-size: 14px;
   color: #99c0ff;
 }
 
-.ptech-stack {
+.desktop-ptech-stack {
   font-size: 13px;
   font-weight: bold;
   color: #99c0ff;
 }
 
-.project-details {
+.desktop-project-details {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -83,19 +88,19 @@
   transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
 }
 
-.project-card.expanded .project-details {
-  max-height: 800px; 
+.desktop-project-card.expanded .desktop-project-details {
+  max-height: 700px; 
   opacity: 1;
   padding: 0px 10px;
 }
 
-.project-details ul {
+.desktop-project-details ul {
   list-style-type: disc;
   text-align: left; 
   padding-left: 10px; 
 }
 
-.project-details li {
+.desktop-project-details li {
   text-align: left; 
   font-size: 15px;
   color: #eee;
@@ -105,7 +110,7 @@
   background-color: #50a8eb13;
 }
 
-.project-details li::before {
+.desktop-project-details li::before {
   content: "•";
   color: #1b79c2;
   font-size: 25px;

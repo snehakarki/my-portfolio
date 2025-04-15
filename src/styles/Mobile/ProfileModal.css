@@ -181,7 +181,7 @@
 }
 
 .current-role {
-  color: #cccccc;
+  color: #99c0ff;
   font-size: 14px;
   margin: 0 0 12px;
   text-align: center;
@@ -194,7 +194,7 @@
 
 .bio {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.5;
   margin: 0 0 0;
   text-align: center;
@@ -203,23 +203,32 @@
 }
 
 .education-location {
-  width: 100%;
-  margin-bottom: 3px;
-  animation: slideDown 0.5s ease-out 0.4s both;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .education-location p {
-  color: #cccccc;
-  font-size: 13px;
-  margin: 6px 0;
+  font-size: 12px;
+  margin: 3px 0;
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 8px;
+  color: #ffffff;
+  width: 100%;
 }
 
 .edu-icon, .location-icon {
   color: #1a73e8;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .interests-container {
