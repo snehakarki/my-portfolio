@@ -3,6 +3,9 @@ import "../../styles/Mobile/BottomNav.css";
 import ProjectModal from "./ProjectModal";
 import ProfileModal from "./ProfileModal";
 import MessageModal from "./MessageModal";
+import photoIcon from "../../assets/icons/photo_icon.png";
+import folderIcon from "../../assets/icons/folder_icon.png";
+import messageIcon from "../../assets/icons/mess_icon.png";
 
 const BottomNav = () => {
   const [showProjects, setShowProjects] = useState(false);
@@ -20,13 +23,13 @@ const BottomNav = () => {
         <div className="bottom-nav">
           <div className="nav-group">
             <button className="nav-button" onClick={() => setShowProfile(true)}>
-              <span>📸</span>
+              <img src={photoIcon} alt="Profile" className="nav-icon" />
             </button>
             <button className="nav-button" onClick={() => setShowProjects(true)}>
-              <span>📁</span>
+              <img src={folderIcon} alt="Projects" className="nav-icon" />
             </button>
             <button className="nav-button" onClick={() => setShowMessage(true)}>
-              <span>💬</span>
+              <img src={messageIcon} alt="Message" className="nav-icon" />
             </button>
           </div>
         </div>
