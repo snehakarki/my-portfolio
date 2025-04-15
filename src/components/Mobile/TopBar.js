@@ -10,11 +10,24 @@ const TopBar = () => {
   }, []);
 
   const formatTime = (date) => {
-    return date.toLocaleTimeString([], { 
+    const timeString = date.toLocaleTimeString([], { 
       hour: "2-digit", 
       minute: "2-digit", 
       hour12: true 
     }).toUpperCase();
+    
+    // Split the time string to separate hour and minute
+    const parts = timeString.split(':');
+    const hour = parts[0];
+    const minute = parts[1];
+    
+    return (
+      <>
+        <span className="hour">{hour}</span>
+        <span className="time-separator">:</span>
+        <span className="minute">{minute}</span>
+      </>
+    );
   };
 
   const formatDate = (date) => {

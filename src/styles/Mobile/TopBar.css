@@ -22,11 +22,25 @@
   }
   
   .time {
-    font-size: 64px;
+    font-size: 60px;
     font-weight: 200;
     line-height: 1;
     margin-bottom: 12px;
     letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .hour {
+    color: #ff3b30;
+  }
+  
+  .time-separator {
+    margin: 0 2px;
+  }
+  
+  .minute {
+    color: white;
   }
   
   .date {
