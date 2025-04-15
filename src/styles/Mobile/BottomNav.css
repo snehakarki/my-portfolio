@@ -5,8 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 50px;
+  padding-bottom: 3svh; 
+  height: calc(10svh + 60px);
+  z-index: 10;
 }
+
 
 .nav-dots {
   display: flex;
@@ -87,8 +90,7 @@
 }
 
 .nav-icon {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
+    width: clamp(42px, 10vw, 56px);
+    height: clamp(42px, 10vw, 56px);
+    border-radius: 10px;
 }
-  
