@@ -17,8 +17,7 @@ const apps = [
 
 // Fun responses for different search queries
 const searchResponses = {
-  "hello": "👋 Hi there! Let's explore recent searches!",
-  "who are you": "I'm Sneha Karki's portfolio assistant! Ask me about her skills, projects, or experience.",
+  "hello": "Hi there! I'm Sneha Karki's portfolio assistant! Ask me about her skills, projects, or experience.",
   "skills": "Sneha is skilled in React, JavaScript, Python, and more! Check out her projects to see her work.",
   "projects": "Here are my projects! Take a look at what I've been working on.",
   "experience": "Sneha has experience in web development, mobile apps, machine learning and more. Check out her resume for details.",
@@ -41,7 +40,6 @@ const AppGrid = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim() === "") return;
-    
     setIsTyping(true);
     
     // Simulate thinking/typing
