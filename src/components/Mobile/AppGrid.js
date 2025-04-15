@@ -11,7 +11,7 @@ import { FaSearch } from "react-icons/fa";
 const apps = [
   { id: 1, name: "LinkedIn", icon: linkedinIcon, link: "https://www.linkedin.com/in/sneha-k-82aa751ba/" },
   { id: 2, name: "GitHub", icon: githubIcon, link: "https://github.com/snehakarki" },
-  { id: 3, name: "Resume", icon: pdfIcon, link: "/resume.pdf" },
+  { id: 3, name: "Resume", icon: pdfIcon, link: process.env.PUBLIC_URL + "/resume.pdf" },
   { id: 4, name: "Email", icon: mailicon, link: "mailto:sneha25karki@gmail.com" },
 ];
 
