@@ -22,7 +22,7 @@ const searchResponses = {
   "skills": "Sneha is skilled in React, JavaScript, Python, and more! Check out her projects to see her work.",
   "projects": "Here are my projects! Take a look at what I've been working on.",
   "experience": "Sneha has experience in web development, mobile apps, machine learning and more. Check out her resume for details.",
-  "contact": "You can reach Sneha through LinkedIn, GitHub, or by email at sneha25karki@gmail.com. Just tap on the respective icons below!",
+  "contact": "You can reach Sneha through LinkedIn, GitHub, or by email. Just tap on the respective icons below!",
   "default": "I'm not sure about that. Try asking about skills, projects, or experience!"
 };
 
