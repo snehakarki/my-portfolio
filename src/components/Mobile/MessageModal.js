@@ -36,11 +36,11 @@ const MessageModal = ({ isOpen, onClose }) => {
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
-          from_email: formData.email,
+          from_email: formData.email,    
           message: formData.message,
           to_email: process.env.REACT_APP_PERSONAL_EMAIL,
         }
-      );
+      );      
       
       if (result.status === 200) {
         setIsSubmitted(true);
