@@ -10,22 +10,21 @@ const TopBar = () => {
   }, []);
 
   const formatTime = (date) => {
-    const timeString = date.toLocaleTimeString([], { 
-      hour: "2-digit", 
-      minute: "2-digit", 
-      hour12: true 
-    }).toUpperCase();
-    
-    // Split the time string to separate hour and minute
-    const parts = timeString.split(':');
-    const hour = parts[0];
-    const minute = parts[1];
-    
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    const period = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12;
+    hours = hours === 0 ? 12 : hours;
+    const hourStr = hours < 10 ? `0${hours}` : `${hours}`;
+    const minuteStr = minutes < 10 ? `0${minutes}` : `${minutes}`;
+
     return (
       <>
-        <span className="hour">{hour}</span>
+        <span className="hour">{hourStr}</span>
         <span className="time-separator">:</span>
-        <span className="minute">{minute}</span>
+        <span className="minute">{minuteStr}</span>
+        <span className="period">{period}</span>
       </>
     );
   };

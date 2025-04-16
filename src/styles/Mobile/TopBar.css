@@ -13,6 +13,10 @@
     box-sizing: border-box;
     height: 30vh;
   }
+
+  .period {
+   padding-left: 15px;
+  }
   
   .time-date-section {
     display: flex;
