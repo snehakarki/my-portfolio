@@ -3,12 +3,27 @@ import "../../styles/Mobile/ProjectModal.css";
 
 const projectsData = [
   {
+    title: "Music Genre Recommendation System",
+    techStack: "Python, Librosa, Scikit-learn, XGBoost",
+    date: "April 2024",
+    details: [
+      "Built a machine learning system to classify and recommend music genres using audio features.",
+      "Used Librosa for audio preprocessing and feature extraction from the GTZAN dataset.",
+      "Applied PCA and heatmaps for data visualization and feature analysis.",
+      "Trained multiple models, with XGBoost achieving 90.09% accuracy in genre classification.",
+      "Developed a recommendation engine using cosine similarity to suggest similar tracks."
+    ],
+  },
+  {
     title: "Medical AI - Chest X-ray Classification",
-    techStack: "Python, TensorFlow, Image Processing",
+    techStack: "Python, Scikit-learn, XGBoost, Matplotlib",
     date: "January 2024",
     details: [
-      "Designed a model trained to distinguish between images showing the presence of a specific medical condition (e.g., atelectasis) and images with no disease.",
-      "Implemented Transfer Learning using InceptionV3 to create a CNN model for binary classification."
+      "Built a binary classification model to detect Atelectasis from chest X-ray images.",
+      "Visualized prediction confidence using histograms and analyzed threshold-based performance.",
+      "Achieved 94% sensitivity and 72% overall accuracy with an AUC of 0.805.",
+      "Used confidence score analysis to understand false positives and false negatives.",
+      "Plotted ROC curve and tuned threshold for optimal specificity-sensitivity tradeoff."
     ],
   },
   {
@@ -31,6 +46,8 @@ const projectsData = [
       "Implemented image augmentation techniques to diversify the dataset."
     ],
   },
+  
+  
 ];
 
 const ProjectModal = ({ isOpen, onClose }) => {
