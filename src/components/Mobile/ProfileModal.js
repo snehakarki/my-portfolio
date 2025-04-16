@@ -1,8 +1,17 @@
 import React from "react";
 import "../../styles/Mobile/ProfileModal.css";
-import { FaUniversity, FaMapMarkerAlt, FaYarn, FaPlane, FaPen, FaCode, FaBriefcase } from "react-icons/fa";
+import {
+  FaUniversity,
+  FaMapMarkerAlt,
+  FaYarn,
+  FaPlane,
+  FaPen,
+  FaCode,
+  FaBriefcase
+} from "react-icons/fa";
 
 const ProfileModal = ({ isOpen, onClose }) => {
+  // Only render if open — this allows animation to retrigger each time
   if (!isOpen) return null;
 
   return (
@@ -10,7 +19,9 @@ const ProfileModal = ({ isOpen, onClose }) => {
       <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2>Profile</h2>
-          <button className="close-button" onClick={onClose}>×</button>
+          <button className="close-button" onClick={onClose}>
+            ×
+          </button>
         </div>
         <div className="profile-container">
           <div className="profile-pic-container">
@@ -58,4 +69,4 @@ const ProfileModal = ({ isOpen, onClose }) => {
   );
 };
 
-export default ProfileModal; 
+export default ProfileModal;

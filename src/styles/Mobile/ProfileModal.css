@@ -36,6 +36,7 @@
   }
 }
 
+
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -274,3 +275,18 @@
   color: #ffffff;
   font-size: 13px;
 } 
+
+  
+.interest-item:hover {
+  transform: scale(1.0);
+  background: rgba(255, 255, 255, 0);
+}
+
+.interest-item .interest-icon {
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.interest-item:hover .interest-icon {
+  transform: rotate(10deg) scale(1.2);
+  color: #99c0ff;
+}

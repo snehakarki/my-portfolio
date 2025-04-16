@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 3svh; 
-  height: calc(10svh + 60px);
-  z-index: 10;
+
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 63px);
 }
 
 
@@ -23,6 +22,7 @@
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 
 .dot.active {
   background-color: rgba(255, 255, 255, 0.9);
@@ -90,7 +90,7 @@
 }
 
 .nav-icon {
-    width: clamp(42px, 10vw, 56px);
-    height: clamp(42px, 10vw, 56px);
+  width: clamp(40px, 12vw, 50x);
+  height: clamp(40px, 12vw, 50px);
     border-radius: 10px;
 }
